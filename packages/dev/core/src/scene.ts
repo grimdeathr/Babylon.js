@@ -229,6 +229,7 @@ export class Scene extends AbstractScene implements IAnimatable, IClipPlanesHold
     public get environmentTexture(): Nullable<BaseTexture> {
         return this._environmentTexture;
     }
+
     /**
      * Texture used in all pbr material as the reflection texture.
      * As in the majority of the scene they are the same (exception for multi room and so on),
@@ -242,6 +243,25 @@ export class Scene extends AbstractScene implements IAnimatable, IClipPlanesHold
         this._environmentTexture = value;
         this.markAllMaterialsAsDirty(Constants.MATERIAL_TextureDirtyFlag);
     }
+
+    public get refractionTexture(): Nullable<BaseTexture> {
+        return this._refractionTexture;
+    }
+
+    /**
+     * Texture used in all pbr material as the refraction texture.
+     * As in the majority of the scene they are the same (exception for multi room and so on),
+     * this is easier to set here than in all the materials.
+     */
+    public set refractionTexture(value: Nullable<BaseTexture>) {
+        if (this._refractionTexture === value) {
+            return;
+        }
+
+        this._refractionTexture = value;
+        this.markAllMaterialsAsDirty(Constants.MATERIAL_TextureDirtyFlag);
+    }
+
 
     /**
      * Intensity of the environment in all pbr material.

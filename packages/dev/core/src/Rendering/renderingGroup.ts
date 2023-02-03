@@ -259,7 +259,6 @@ export class RenderingGroup {
             if (scene._activeMeshesFrozenButKeepClipping && !subMesh.isInFrustum(scene._frustumPlanes)) {
                 continue;
             }
-
             if (transparent) {
                 const material = subMesh.getMaterial();
 
@@ -487,3 +486,5 @@ export class RenderingGroup {
         this._scene.onAfterSpritesRenderingObservable.notifyObservers(this._scene);
     }
 }
+
+

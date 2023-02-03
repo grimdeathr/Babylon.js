@@ -664,6 +664,7 @@ export class SceneManager {
         if (sceneConfig.animationPropertiesOverride) {
             extendClassWithConfig(this.scene.animationPropertiesOverride, sceneConfig.animationPropertiesOverride);
         }
+        //add refraction texture as well
         if (sceneConfig.environmentTexture) {
             if (!(this.scene.environmentTexture && (<CubeTexture>this.scene.environmentTexture).url === sceneConfig.environmentTexture)) {
                 if (this.scene.environmentTexture && this.scene.environmentTexture.dispose) {
